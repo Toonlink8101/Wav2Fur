@@ -12,15 +12,32 @@
     - use a notch filter to remove this frequency from the dataset 
     - repeat steps a - e until the number of desired frequencies is met
 
-- convert the gathered frequencies into notes and cents:
-    - use lookup table for note
-    - 1 cent = 1/100 of a semitone
+- convert the gathered frequencies into notes and detunes:
+    - f = frequency; f0 = reference frequency; n is the number of semitones
+    - f = f0 * 2 ^ (n / 12)
+        - Source: https://www.reddit.com/r/musictheory/comments/j3q0i3/how_can_you_calculate_the_frequency_of_a_given/g7dnag5/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+    - Solving for n:
+        - math.log(f/f0, 2) = n/12 * math.log(2, 2)
+        - math.log(f/f0, 2) * 12 = n
+        - n = 12 * math.log(f/f0, 2)
+    - Pseudocode for note:
+        - semitones_from_f0 = int(n)
+        - f0_value = #calculate before hand; 57 for A4 (440hz) 
+        - note_value = f0_value + semitones_from_f0
+        - # output via note value converter
     - For E5xx, 0x00 is -1 semitone, 0x80 is base pitch, 0xFF is nearly +1 semitone.
-    - Pseudocode:
-    - cent_ratio = cents/100
-    - effect_value = ((0x80 * cent_ratio) + 0x80)
+    - Pseudocode for detune effect:
+        - semitone_fraction = n % 1
+        - effect_value = ((0x80 * semitone_fraction) + 0x80)
+        - detune_output = "E5" + hex(effect_value)[2:4]
+    
 
-- convert the notes, cents, and loudness into something more usable as necessary
+- convert loudness into something more usable
+    - 7F is loudest
+    - "every step is 0.75dB quieter"
+        - Source: https://www.plutiedev.com/ym2612-registers#reg-40:~:text=TL%3A%20total%20level%20(every%20step%20is%200.75dB%20quieter)
+    - three 7F sine waves goes over 0dB
+    - one 7F sine wave is ~8.4dB (quieter than three sine waves, of course)
 
 Plan B (more work from user, but easier to implement):
 - calculate the number of 256-row patterns needed (patterns = (rows // 256) + 1)
