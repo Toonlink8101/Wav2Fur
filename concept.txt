@@ -1,31 +1,31 @@
-1. Pull raw audio data from a .wav file
+- Pull raw audio data from a .wav file
 
-2. separate data into 60hz intervals
+- separate data into 60hz intervals
 
-3. append each segment the segment following it
+- append each segment the segment following it
 
     Note: since the last segment does not have one following it, it will be deleted before moving on
 
-4. blend each segment with a hanning window
+- blend each segment with a hanning window
 
-5. FOR EACH SEGMENT:
+- FOR EACH SEGMENT:
 
-    a. use (r)fft to find the loudest frequency
+    - use (r)fft to find the loudest frequency
 
-    b. use a bandpass filter to isolate the loudest frequency
+    - use a bandpass filter to isolate the loudest frequency
 
-    c. determine the loudness of this frequency
+    - determine the loudness of this frequency
 
-    d. record the frequency and its loudness
+    - record the frequency and its loudness
 
-    e. use a notch filter to remove this frequency from the dataset 
+    - use a notch filter to remove this frequency from the dataset 
 
-    f. repeat steps a - e until the number of desired frequencies is met
+    - repeat steps a - e until the number of desired frequencies is met
 
-6. convert the gathered frequencies into notes and cents
+- convert the gathered frequencies into notes and cents
 
-7. convert the notes, cents, and loudness into something more usable as necessary
+- convert the notes, cents, and loudness into something more usable as necessary
 
-8. write gathered data to a .fur file
+- write gathered data to a .fur file
 
-9. Profit
+- Profit
