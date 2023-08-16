@@ -1,9 +1,12 @@
 - Pull raw audio data from a .wav file
+
 - separate data into 60hz intervals
+
 - append each segment the segment following it
     Note: since the last segment does not have one following it, it will be excluded from the dataset
 
 - blend each segment with a hanning window
+
 - FOR EACH SEGMENT:
     - use (r)fft to find the loudest frequency
     - use a bandpass filter to isolate the loudest frequency
@@ -40,11 +43,12 @@
     - three 7F sine waves goes over 0dB
     - one 7F sine wave is ~8.4dB (quieter than three sine waves, of course)
 
-Plan B (more work from user, but easier to implement):
-- calculate the number of 256-row patterns needed (patterns = (rows // 256) + 1)
-- output the data to the clipboard in chuncks of 256 rows
-- Profit
+- Two options for output:
+    - Plan A (too complicated for now):
+        - write gathered data to a .fur file
+    - Plan B (more work from user, but easier to implement):
+        - calculate the number of 256-row patterns needed (patterns = (rows // 256) + 1)
+        - output the data to the clipboard in chuncks of 256 rows
+        - prompt the user between each clipboard dump
 
-Plan A (too complicated for now):
-- write gathered data to a .fur file
 - Profit
