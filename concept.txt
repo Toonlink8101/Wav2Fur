@@ -52,3 +52,8 @@
         - prompt the user between each clipboard dump
 
 - Profit
+
+Ideas for further development:
+- use Ext. channel 3 on its own
+- use Ext. channel 3 in addition to the default 6 channels
+- use algorithm 7 and multiplier effects to have 4 sine waves per channel for non-extended channels
