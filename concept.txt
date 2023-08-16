@@ -1,7 +1,7 @@
 - Pull raw audio data from a .wav file
 - separate data into 60hz intervals
 - append each segment the segment following it
-    Note: since the last segment does not have one following it, it will be deleted before moving on
+    Note: since the last segment does not have one following it, it will be excluded from the dataset
 - blend each segment with a hanning window
 - FOR EACH SEGMENT:
     - use (r)fft to find the loudest frequency
@@ -12,5 +12,11 @@
     - repeat steps a - e until the number of desired frequencies is met
 - convert the gathered frequencies into notes and cents
 - convert the notes, cents, and loudness into something more usable as necessary
+
+Plan B (more work from user, but easier to implement):
+- output the data to the clipboard in chuncks of 256 rows
+- Profit
+
+Plan A (too complicated for now):
 - write gathered data to a .fur file
 - Profit
