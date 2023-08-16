@@ -55,7 +55,7 @@
         - output the data to the clipboard in chuncks of 256 rows
         - prompt the user between each clipboard dump
 
-    - Plan C >> even more work (3x more), but uses much less pattern data and allows for more track speeds:
+    - Plan C >> even more work (triple the work as B), but uses much less pattern data and allows for more track speeds:
         - E5xx value is the same value for pitch macros
         - absolute note has the same values as note converter
         - All values are directly mapped to macros (volume, absolute note, pitch)
