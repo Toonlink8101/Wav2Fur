@@ -45,13 +45,24 @@
     - three 7F sine waves goes over 0dB
     - one 7F sine wave is ~8.4dB (quieter than three sine waves, of course)
 
-- Two options for output:
-    - Plan A (too complicated for now):
+- Options for output:
+    - Plan A >> too complicated for now:
         - write gathered data to a .fur file
-    - Plan B (more work from user, but easier to implement):
-        - calculate the number of 256-row patterns needed (patterns = (rows // 256) + 1)
+
+    - Plan B >> more work from user, but easier to implement:
+        - calculate the number of 256-row patterns needed 
+            - Pseudocode: patterns = (rows // 256) + 1
         - output the data to the clipboard in chuncks of 256 rows
         - prompt the user between each clipboard dump
+
+    - Plan C >> even more work (3x more), but uses much less pattern data and allows for more track speeds:
+        - E5xx value is the same value for pitch macros
+        - absolute note has the same values as note converter
+        - All values are directly mapped to macros (volume, absolute note, pitch)
+        - calculate the number of 256-row groups needed, but output each as instrument macros 
+            - Pseudocode: intruments = (rows // 256) + 1
+        - calculate the number of 256-row patterns needed
+            - Pseudocode: patterns = (intruments // 256) + 1
 
 - Profit
 
