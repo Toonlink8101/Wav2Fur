@@ -8,6 +8,7 @@
     - use (r)fft to find the loudest frequency
     - use a bandpass filter to isolate the loudest frequency
     - determine the loudness of this frequency
+        - This might be helpful: https://stackoverflow.com/questions/66138578/convert-waves-to-decibels-in-python
     - record the frequency and its loudness
     - use a notch filter to remove this frequency from the dataset 
     - repeat steps a - e until the number of desired frequencies is met
