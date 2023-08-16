@@ -2,6 +2,7 @@
 - separate data into 60hz intervals
 - append each segment the segment following it
     Note: since the last segment does not have one following it, it will be excluded from the dataset
+
 - blend each segment with a hanning window
 - FOR EACH SEGMENT:
     - use (r)fft to find the loudest frequency
@@ -10,10 +11,19 @@
     - record the frequency and its loudness
     - use a notch filter to remove this frequency from the dataset 
     - repeat steps a - e until the number of desired frequencies is met
-- convert the gathered frequencies into notes and cents
+
+- convert the gathered frequencies into notes and cents:
+    - use lookup table for note
+    - 1 cent = 1/100 of a semitone
+    - For E5xx, 0x00 is -1 semitone, 0x80 is base pitch, 0xFF is nearly +1 semitone.
+    - Pseudocode:
+    - cent_ratio = cents/100
+    - effect_value = ((0x80 * cent_ratio) + 0x80)
+
 - convert the notes, cents, and loudness into something more usable as necessary
 
 Plan B (more work from user, but easier to implement):
+- calculate the number of 256-row patterns needed (patterns = (rows // 256) + 1)
 - output the data to the clipboard in chuncks of 256 rows
 - Profit
 
