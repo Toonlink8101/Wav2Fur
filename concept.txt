@@ -8,6 +8,7 @@
     - etc.
     - e.g. [a, b, c] -> [ab, bc]
     - Note: the size of the new array should be one less than the original
+    - numpy.concatinate() might be useful????
 
 - filter each of the contactinated elements with a hanning window
     - This might help: https://www.geeksforgeeks.org/hanning-in-numpy-python/#
