@@ -2,13 +2,20 @@
 
 - separate data into 60hz intervals
 
-- append each segment the segment following it
-    Note: since the last segment does not have one following it, it will be excluded from the dataset
+- a new array is made where:
+    - element 0 is the contactination of intervals 0 and 1 from the original array,
+    - element 1 is the contactination of intervals 1 and 2,
+    - etc.
+    - e.g. [a, b, c] -> [ab, bc]
+    - Note: the size of the new array should be one less than the original
 
-- blend each segment with a hanning window
+- filter each of the contactinated elements with a hanning window
+    - This might help: https://www.geeksforgeeks.org/hanning-in-numpy-python/#
+    - Some context: https://github.com/ArdenButterfield/stammer/blob/main/audio_matching.py
 
 - FOR EACH SEGMENT:
     - use (r)fft to find the loudest frequency
+        - This might help: https://realpython.com/python-scipy-fft/
     - use a bandpass filter to isolate the loudest frequency
         - This might help: https://scipy-cookbook.readthedocs.io/items/ButterworthBandpass.html
     - determine the loudness of this frequency
