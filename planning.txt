@@ -46,7 +46,7 @@
         - detune_output = "E5" + hex(effect_value)[2:4]
     
 
-- convert loudness into something more usable
+- convert loudness into values
     - 7F is loudest
     - "every step is 0.75dB quieter"
         - Source: https://www.plutiedev.com/ym2612-registers#reg-40:~:text=TL%3A%20total%20level%20(every%20step%20is%200.75dB%20quieter)
@@ -64,6 +64,7 @@
         - prompt the user between each clipboard dump
 
     - Plan C >> even more work (triple the work as B), but uses much less pattern data and allows for more track speeds:
+        - output data as instrument macros and pattern data
         - E5xx value is the same value for pitch macros
         - absolute note has the same values as note converter
         - All values are directly mapped to macros (volume, absolute note, pitch)

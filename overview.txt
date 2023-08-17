@@ -1,0 +1,37 @@
+- Pull raw audio data from a .wav file
+
+- separate data into 60hz intervals
+
+- make new array for blending process
+
+- filter via hanning window
+
+- FOR EACH SEGMENT:
+    - find the loudest frequency
+    - isolate that frequency
+    - determine how loud it is
+    - record the frequency and its loudness
+    - filter out this frequency from the data
+    - repeat steps a - e until the number of desired frequencies is met
+
+- convert the gathered frequencies into notes and detunes
+    
+
+- convert loudness into values
+
+- Options for output:
+    - Plan A >> too complicated for now:
+        - write gathered data to a .fur file
+
+    - Plan B >> more work from user, but easier to implement:
+        - output the data to the clipboard in chuncks of 256 rows
+
+    - Plan C >> even more work (triple the work as B), but uses much less pattern data and allows for more track speeds:
+        - output data as instrument macros and pattern data
+
+- Profit
+
+Ideas for further development:
+- use Ext. channel 3 on its own
+- use Ext. channel 3 in addition to the other 4-5 default channels
+- use algorithm 7 and multiplier effects to have 4 sine waves per channel for non-extended channels
