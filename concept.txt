@@ -71,6 +71,7 @@
             - Pseudocode: intruments = (rows // 256) + 1
         - calculate the number of 256-row patterns needed
             - Pseudocode: patterns = (intruments // 256) + 1
+        - Note: works with Ext. channel 3 as well as normal channels
 
 - Profit
 
