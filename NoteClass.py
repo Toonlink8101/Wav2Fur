@@ -7,13 +7,4 @@ class Note:
         self.detune = detune
 
     def output_pattern(self) -> str:
-        r = str(Value2Note(self.value)) + ".."
-        
-        if(self.volume < 16):
-            r += '0' + hex(self.volume)[-1]
-        else:
-            r +=  hex(self.volume)[-2:]
-        
-        r += "E5" + hex(self.detune)
-
-        return r
+        return str(Value2Note(self.value)) + ".." + hex(self.volume + 0x100)[-2:] + "E5" + hex(self.detune)
