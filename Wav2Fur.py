@@ -1,5 +1,8 @@
+from NoteClass import Note
+from ReadWav import Get_Data
+
 """
-    Main function
+    Main
 """
 
 data = []
