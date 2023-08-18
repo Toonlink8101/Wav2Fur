@@ -5,8 +5,6 @@ from ReadWav import Get_Data
     Main
 """
 
-data = []
-
 data = Get_Data()
 
 data = Filter_Data(data)
