@@ -1,10 +1,10 @@
-- Pull raw audio data from a .wav file
-
-- separate data into 60hz intervals
-
-- make new array for blending process
-
-- filter via hanning window
+- Get data:
+    - Pull raw audio data from a .wav file
+    - separate data into 60hz intervals
+    
+- filter data:
+    - make new array for blending process
+    - filter via hanning window
 
 - FOR EACH SEGMENT:
     - find the loudest frequency
@@ -14,12 +14,11 @@
     - filter out this frequency from the data
     - repeat steps a - e until the number of desired frequencies is met
 
-- convert the gathered frequencies into notes and detunes
-    
+- convert data:
+    - convert the gathered frequencies into notes and detunes
+    - convert loudness into values
 
-- convert loudness into values
-
-- Options for output:
+- output data (options):
     - Plan A >> too complicated for now:
         - write gathered data to a .fur file
 
