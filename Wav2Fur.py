@@ -3,6 +3,7 @@ from ReadWav import Get_Data
 from FilterHanning import Filter_Data
 from PromptUser import Get_User_Data
 from CalculateNoteData import Get_Row
+from Output import output_note_data
 
 """
     Main
@@ -19,4 +20,4 @@ note_data = []
 for i in range(len(frames)):
     note_data.append(Get_Row(frames[i], samplerate, channel_number))
 
-output_data()
+output_note_data()
