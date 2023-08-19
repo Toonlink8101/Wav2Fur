@@ -5,6 +5,10 @@ from NoteClass import Note
 """
 
 def Get_Row(data:list, channel_count:int) -> list[Note]:
+    # escape condition
+    if channel_count <= 0:
+        return []
+    
     # find loudest frequency
 
     # isolate frequency
@@ -12,7 +16,10 @@ def Get_Row(data:list, channel_count:int) -> list[Note]:
     # determine volume
 
     # store results in an object
+    r = Note()
 
     # filter out frequency from data
-    
-    return 
+    filtered_data = data
+
+    # Call self
+    return [r] + Get_Row(filtered_data, channel_count-1)
