@@ -6,12 +6,14 @@ from FilterHanning import Filter_Data
     Main
 """
 
+file_name, channel_number = Get_User_Data()
+
 data = Get_Data()
 
 data = Filter_Data(data)
 
 for segment in data:
-    pass
+    Get_Row(data)
 
 convert2notes()
 
