@@ -1,7 +1,7 @@
 from NoteClass import Note
 from ReadWav import Get_Data
 from FilterHanning import Filter_Data
-from PromptUser import Get_User_Data
+from Input import Get_User_Data
 from CalculateNoteData import Get_Row
 from OutputHandler import output_note_data
 
