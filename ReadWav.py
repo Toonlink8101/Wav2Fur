@@ -10,4 +10,4 @@ def Get_Data(file_path: str) -> list[list]:
     samples_per_frame = sample_rate / 60
     frames_in_data = len(data) / samples_per_frame
 
-    return np.array_split(data, frames_in_data)
+    return np.array_split(data, frames_in_data), sample_rate

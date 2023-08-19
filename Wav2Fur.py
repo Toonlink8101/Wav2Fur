@@ -10,12 +10,12 @@ from CalculateNoteData import Get_Row
 
 file_name, channel_number = Get_User_Data()
 
-data = Get_Data()
+data, samplerate = Get_Data()
 
 data = Filter_Data(data)
 
 for segment in data:
-    Get_Row(segment, channel_number)
+    Get_Row(segment, samplerate, channel_number)
 
 convert2notes()
 
