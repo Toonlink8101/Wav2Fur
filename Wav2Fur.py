@@ -14,9 +14,9 @@ data, samplerate = Get_Data()
 
 data = Filter_Data(data)
 
-for segment in data:
-    Get_Row(segment, samplerate, channel_number)
+note_data = []
 
-convert2notes()
+for i in range(len(data)):
+    note_data.append(Get_Row(data[i], samplerate, channel_number))
 
 output_data()
