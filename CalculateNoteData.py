@@ -1,6 +1,7 @@
 from NoteClass import Note
 from scipy.fft import rfft, rfftfreq, irfft
 import numpy as np
+from Bandpass import butter_bandpass_filter
 
 """
     Calulates frequencies for a tick of note data
@@ -24,8 +25,10 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
                 loudest_freq = (i, j)
 
     # isolate frequency
+    isolated_freq_data = butter_bandpass_filter(data, loudest_freq-1, loudest_freq+1, samplerate)
 
     # determine volume
+    
 
     # store results in an object
     r = Note()
