@@ -10,13 +10,13 @@ from CalculateNoteData import Get_Row
 
 file_name, channel_number = Get_User_Data()
 
-data, samplerate = Get_Data()
+frames, samplerate = Get_Data()
 
-data = Filter_Data(data)
+frames = Filter_Data(frames)
 
 note_data = []
 
-for i in range(len(data)):
-    note_data.append(Get_Row(data[i], samplerate, channel_number))
+for i in range(len(frames)):
+    note_data.append(Get_Row(frames[i], samplerate, channel_number))
 
 output_data()
