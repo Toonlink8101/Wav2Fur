@@ -1,10 +1,12 @@
+from NoteClass import Note
+
 def output_pattern():
     pass
 
 def output_instrument():
     pass
 
-def output_data():
+def output_note_data():
     
     match input("""
                 \n1. Output to .fur module (not yet supported)
@@ -18,4 +20,4 @@ def output_data():
             output_instrument()
         case _:
             print("Invalid option")
-            output_data()
+            output_note_data()
