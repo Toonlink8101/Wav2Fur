@@ -14,7 +14,7 @@ data = Get_Data()
 data = Filter_Data(data)
 
 for segment in data:
-    Get_Row(data)
+    Get_Row(segment)
 
 convert2notes()
 
