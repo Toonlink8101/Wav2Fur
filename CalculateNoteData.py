@@ -12,7 +12,7 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     
     # fourier transform
     yf = rfft(data)
-    xf = rfftfreq(len(data), 1/sample_rate)
+    xf = rfftfreq(len(data), 1/samplerate)
 
     # find loudest frequency
 
@@ -27,4 +27,4 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     filtered_data = data
 
     # Call self
-    return [r] + Get_Row(filtered_data, channel_count-1)
+    return [r] + Get_Row(filtered_data, samplerate, channel_count-1)
