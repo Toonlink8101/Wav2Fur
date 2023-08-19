@@ -1,7 +1,7 @@
 from NoteClass import Note
 from scipy.fft import rfft, rfftfreq, irfft
 import numpy as np
-from Bandpass import butter_bandpass_filter
+from helpers.Bandpass import butter_bandpass_filter
 
 """
     Calulates frequencies for a tick of note data
