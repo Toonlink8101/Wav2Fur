@@ -22,8 +22,9 @@ frames = Filter_Data(frames)
 # generate notes from sound data
 note_data = []
 
-for frame in frames:
-    note_data.append(Get_Row(frame, samplerate, channel_number))
+for i in range(len(frames)):
+    print("Frame count: " + str(i))
+    note_data.append(Get_Row(frames[i], samplerate, channel_number))
 
 # output result
 output_note_data(note_data)
