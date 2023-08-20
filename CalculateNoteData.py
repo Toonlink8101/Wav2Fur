@@ -4,6 +4,7 @@ import numpy as np
 from helpers.Bandpass import butter_bandpass_filter
 from helpers.Decibels import get_average_decibels
 from helpers.freq2note import freq2note
+from helpers.Notch import notch_filter
 
 """
     Calulates frequencies for a tick of note data
@@ -39,7 +40,7 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     r = freq2note(loudest_freq, decibels)
 
     # filter out frequency from data
-    filtered_data = data
+    filtered_data = notch_filter(data, loudest_freq, samplerate)
 
     # Call self
     return [r] + Get_Row(filtered_data, samplerate, channel_count-1)
