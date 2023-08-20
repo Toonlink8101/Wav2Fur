@@ -3,7 +3,6 @@
 """
 
 from scipy import signal
-import numpy as np
 
 def notch_filter(data:list, notch_frequency:float, samplerate:int):
     # Create/view notch filter
