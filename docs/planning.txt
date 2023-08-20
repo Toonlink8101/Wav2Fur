@@ -52,6 +52,9 @@
         - Source: https://www.plutiedev.com/ym2612-registers#reg-40:~:text=TL%3A%20total%20level%20(every%20step%20is%200.75dB%20quieter)
     - three 7F sine waves goes over 0dB
     - one 7F sine wave is ~8.4dB (quieter than three sine waves, of course)
+    - Pseudocode:
+        - # probably very wrong...
+        - value = int(0x7F + (loudness / .75))
 
 - Options for output:
     - Plan A >> too complicated for now:
