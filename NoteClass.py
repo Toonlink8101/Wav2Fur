@@ -6,5 +6,5 @@ class Note:
         self.volume = volume
         self.detune = detune
 
-    def __str__(self) -> str:
+    def output(self) -> str:
         return str(Value2Note(self.value)) + ".." + hex(self.volume + 0x100)[-2:] + "E5" + hex(self.detune + 0x100)[-2:]
