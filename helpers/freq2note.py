@@ -1,7 +1,7 @@
 import math
 from NoteClass import Note
 
-def freq2note(frequency, loudness) -> int:
+def freq2note(frequency, loudness) -> Note:
     # reference frequency
     f0 = 440
 

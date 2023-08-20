@@ -3,6 +3,7 @@ from scipy.fft import rfft, rfftfreq, irfft
 import numpy as np
 from helpers.Bandpass import butter_bandpass_filter
 from helpers.Decibels import get_average_decibels
+from helpers.freq2note import freq2note
 
 """
     Calulates frequencies for a tick of note data
@@ -35,10 +36,7 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     loudness = get_average_decibels(isolated_freq_data)
 
     # convert frequency and loudness to note object
-
-
-    # store results in an object
-    r = Note()
+    r = freq2note()
 
     # filter out frequency from data
     filtered_data = data
