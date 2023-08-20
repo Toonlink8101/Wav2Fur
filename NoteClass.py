@@ -7,4 +7,4 @@ class Note:
         self.detune = detune
 
     def __str__(self) -> str:
-        return str(Value2Note(self.value)) + ".." + hex(self.volume + 0x100)[-2:] + "E5" + hex(self.detune)[-2:]
+        return str(Value2Note(self.value)) + ".." + hex(self.volume + 0x100)[-2:] + "E5" + hex(self.detune + 0x100)[-2:]
