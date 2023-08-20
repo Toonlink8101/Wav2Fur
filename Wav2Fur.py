@@ -2,7 +2,7 @@ from NoteClass import Note
 from helpers.ReadWav import Get_Data
 from helpers.FilterHanning import Filter_Data
 from CalculateNoteData import Get_Row
-from helpers.OutputHandler import output_note_data
+from OutputHandler import output_note_data
 
 """
     Main
