@@ -24,11 +24,20 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
 
     for frequency in xf:
         for amplitude in np.abs(yf):
-            if loudest_freq[1] < amplitude and frequency > 30:
+            if loudest_freq[1] < amplitude and frequency > 30 and frequency % 30 != 0:
                 loudest_freq = (frequency, amplitude)
 
     # remove amplitude component
     loudest_freq = loudest_freq[0]
+
+    print(loudest_freq)
+
+    if loudest_freq == 0:
+        r = freq2note(60, -1000)
+        row = []
+        for i in range(channel_count):
+            row += [r]
+        return row
 
     # isolate frequency
     isolated_freq_data = butter_bandpass_filter(data, loudest_freq-1, loudest_freq+1, samplerate)
