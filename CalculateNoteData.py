@@ -33,10 +33,10 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     isolated_freq_data = butter_bandpass_filter(data, loudest_freq-1, loudest_freq+1, samplerate)
 
     # determine volume
-    loudness = get_average_decibels(isolated_freq_data)
+    decibels = get_average_decibels(isolated_freq_data)
 
     # convert frequency and loudness to note object
-    r = freq2note()
+    r = freq2note(loudest_freq, decibels)
 
     # filter out frequency from data
     filtered_data = data
