@@ -7,6 +7,6 @@ def Filter_Data(data:list[list]) -> list[list]:
 
     # generate filtered data
     for i in range(1, len(data)):
-        r.append(window * np.array(np.concatenate(data[i-1], data[i])))
+        r.append(np.multiply(window, data[i-1] + data[i]))
 
     
