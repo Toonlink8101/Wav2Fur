@@ -14,7 +14,7 @@ file_name = input("Please input the file to be read: ")
 channel_number = input("Input the number of channels: ")
 
 # fetch data
-frames, samplerate = Get_Data()
+frames, samplerate = Get_Data(file_name)
 
 # filter data
 frames = Filter_Data(frames)
