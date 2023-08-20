@@ -16,6 +16,7 @@ def output_pattern(data:list[list[Note]]):
     print(output)
 
 def output_instrument(data:list[list[Note]]):
+    print("Not yet implemented")
     pass
 
 def output_note_data(data:list[list[Note]]):
