@@ -26,4 +26,4 @@ for i in range(len(frames)):
     note_data.append(Get_Row(frames[i], samplerate, channel_number))
 
 # output result
-output_note_data()
+output_note_data(note_data)
