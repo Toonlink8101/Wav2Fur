@@ -9,4 +9,6 @@ def Filter_Data(data:list[list]) -> list[list]:
     for i in range(1, len(data)):
         r.append(np.multiply(window, data[i-1] + data[i]))
 
+    return r
+
     

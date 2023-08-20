@@ -11,7 +11,7 @@ from OutputHandler import output_note_data
 # get input
 file_name = input("Please input the file to be read: ")
 
-channel_number = input("Input the number of channels: ")
+channel_number = int(input("Input the number of channels: "))
 
 # fetch data
 frames, samplerate = Get_Data(file_name)
