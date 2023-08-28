@@ -3,7 +3,7 @@ import scipy
 from scipy.fft import rfft, rfftfreq, irfft
 # from matplotlib import pyplot as plt
 
-sample_rate, data = scipy.io.wavfile.read("what do you think it is.wav")
+sample_rate, data = scipy.io.wavfile.read("hooray-meme-sound.wav")
 
 samples_per_frame = sample_rate / 60
 frames_in_data = len(data) / samples_per_frame
@@ -73,4 +73,4 @@ typed_unframes = np.copy(unframes)
 
 print(typed_unframes)
 
-# scipy.io.wavfile.write("unframesTest.wav", sample_rate, typed_unframes)
+scipy.io.wavfile.write("unframesTest.wav", sample_rate, typed_unframes)

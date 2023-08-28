@@ -20,6 +20,7 @@ def freq2note(frequency, loudness) -> Note:
     detune_value = round((0x80 * semitone_fraction) + 0x80)
 
     # calculate volume
+    #TODO: fix this, IDK what's happening, too loud?
     volume_value = int(0x7F + (loudness / .75))
 
     return Note(note_value, volume_value, detune_value)

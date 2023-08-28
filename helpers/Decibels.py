@@ -1,5 +1,6 @@
 import numpy as np
 
+#stolen
 def convert_to_decibel(arr):
     ref = 1
     if arr!=0:
@@ -7,7 +8,8 @@ def convert_to_decibel(arr):
         
     else:
         return -60
-    
+
+# not stolen    
 def get_average_decibels(data:list):
     sum = 0
 

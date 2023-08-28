@@ -7,11 +7,22 @@ import numpy as np
 def Get_Data(file_path: str) -> list[list]:
     sample_rate, data = scipy.io.wavfile.read(file_path)
 
-    samples_per_frame = sample_rate / 60
-    frames_in_data = len(data) // samples_per_frame
+    data = list(data)
 
-    samples2remove = int(len(data) % samples_per_frame)
+    samples_per_frame = sample_rate // 60
+    frames_in_data = (len(data) // samples_per_frame) + 1
 
-    data = data[:len(data)-samples2remove]
+    samples2add = samples_per_frame - int(len(data) % samples_per_frame)
+
+    # for i in range(samples2add):
+    # data.append(0)
+    # data[100] += 1
+
+    # Why does adding zeros at the end just ruin everything?
+    # unframes = []
+    # for value in data:
+    #     unframes.append(value)
+    # scipy.io.wavfile.write("unframesTest.wav", sample_rate, np.copy(unframes))
+    # exit()
 
     return np.array_split(data, frames_in_data), sample_rate

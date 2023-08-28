@@ -6,33 +6,51 @@ from helpers.Decibels import get_average_decibels
 from helpers.freq2note import freq2note
 from helpers.Notch import notch_filter
 
+# stole this
+def freq(x):
+    b = x#.mean(1)
+    d = (np.fft.rfft(b)**2)
+    w = d[1:].argmax() + 1
+    return w
+
+# Didn't steal this, but doesn't work
+def  find_frequency(data:list, samplerate:int):
+    # init output
+    r = (0, 0)
+
+    # fourier transform
+    yf = rfft(data)
+    xf = rfftfreq(len(data), 1/samplerate)
+
+    # find loudest freq
+    for frequency in xf:
+        for amplitude in np.abs(yf):
+            if r[1] < amplitude and frequency > 32 and frequency % 30 != 0:
+                r = (frequency, amplitude)
+    return r
+
 """
     Calulates frequencies for a tick of note data
 """
-
 def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     # escape condition
     if channel_count <= 0:
         return []
     
-    # fourier transform
-    yf = rfft(data)
-    xf = rfftfreq(len(data), 1/samplerate)
+        
 
     # find loudest frequency
-    loudest_freq = (0, 0)
+    # loudest_freq = find_frequency(data, samplerate)
 
-    for frequency in xf:
-        for amplitude in np.abs(yf):
-            if loudest_freq[1] < amplitude and frequency > 30 and frequency % 30 != 0:
-                loudest_freq = (frequency, amplitude)
+    # stolen version
+    loudest_freq = freq(data)
 
     # remove amplitude component
-    loudest_freq = loudest_freq[0]
+    # loudest_freq = loudest_freq[0]
 
     print(loudest_freq)
 
-    if loudest_freq == 0:
+    if loudest_freq <= 30:
         r = freq2note(60, -1000)
         row = []
         for i in range(channel_count):
