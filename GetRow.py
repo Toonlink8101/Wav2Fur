@@ -5,6 +5,7 @@ from helpers.Bandpass import butter_bandpass_filter
 from helpers.Decibels import get_average_decibels
 from helpers.freq2note import freq2note
 from helpers.Notch import notch_filter
+from helpers.RelationGen import note_freqs
 
 """
     Returns a dictionary with frequencies as keys and decibels as values
@@ -12,9 +13,9 @@ from helpers.Notch import notch_filter
 def GetFrequencies(data: list, samplerate:int) -> dict:
     r = {}
 
-    for current_frequency in range(61, 8001, 3):
-        if current_frequency%1000 <= 2:
-            print(current_frequency//1000, "khz")
+    for current_frequency in note_freqs():
+        # if current_frequency%1000 <= 2:
+        #     print(current_frequency//1000, "khz")
         filtered_frequency = butter_bandpass_filter(data, current_frequency-1, current_frequency+1, samplerate)
         decibels = get_average_decibels(filtered_frequency)
         r.update({current_frequency: decibels})
