@@ -12,8 +12,8 @@ from helpers.Notch import notch_filter
 def GetFrequencies(data: list, samplerate:int) -> dict:
     r = {}
 
-    for current_frequency in range(60, 8001):
-        if current_frequency%1000 == 0:
+    for current_frequency in range(61, 8001, 3):
+        if current_frequency%1000 <= 2:
             print(current_frequency//1000, "khz")
         filtered_frequency = butter_bandpass_filter(data, current_frequency-1, current_frequency+1, samplerate)
         decibels = get_average_decibels(filtered_frequency)
