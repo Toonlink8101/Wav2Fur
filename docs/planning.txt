@@ -55,6 +55,11 @@
     - Pseudocode:
         - # probably very wrong...
         - value = int(0x7F + (loudness / .75))
+    - BETTER EQUATION!!!!!
+        - Source: https://discord.com/channels/936515318220722197/941448292720574574/1145586118671204462
+        - db = OPN_TL / 8 * -6
+        - OPN_TL = db / -6 * 8
+        - (assuming that 0 is maximum volume, so you may have to subtract from 0x7F)
 
 - Options for output:
     - Plan A >> too complicated for now:
