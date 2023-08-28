@@ -15,10 +15,11 @@ def GetFrequencies(data: list, samplerate:int) -> dict:
     r = {}
 
     for current_frequency in islice(note_freqs(), 1, 83):
-        # if current_frequency%1000 <= 2:
-        #     print(current_frequency//1000, "khz")
-        filtered_frequency = butter_bandpass_filter(data, current_frequency-1, current_frequency+1, samplerate)
-        decibels = get_average_decibels(filtered_frequency)
+    #     # if current_frequency%1000 <= 2:
+    #     #     print(current_frequency//1000, "khz")
+    #     filtered_frequency = butter_bandpass_filter(data, current_frequency-1, current_frequency+1, samplerate)
+        # decibels = get_average_decibels(filtered_frequency)
+        decibels = get_average_decibels(data)
         r.update({current_frequency: decibels})
 
     return r
