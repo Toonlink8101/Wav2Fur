@@ -12,5 +12,7 @@ def recurrence_relation(seed,func):
         que.append(out)
 
 def note_freqs():
-    series = recurrence_relation([55],lambda x: x[-1] * 2**(1 / 12))
+    semitones = 1
+    #series =
+    return recurrence_relation([55],lambda x: x[-1] * 2**(semitones / 12))
     return islice(series, 0, 83)
