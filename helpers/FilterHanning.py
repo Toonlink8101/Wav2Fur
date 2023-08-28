@@ -7,11 +7,11 @@ def Filter_Data(data:list[list]) -> list[list]:
 
     # generate filtered data
     for i in range(1, len(data)):
-        # window = np.hanning(len(data[i-1]) + len(data[i]))
-        # r.append(np.multiply(window, list(data[i-1]) + list(data[i])))
+        window = np.hanning(len(data[i-1]) + len(data[i]))
+        r.append(np.multiply(window, list(data[i-1]) + list(data[i])))
         
         # no filter
-        r.append(list(data[i-1]) + list(data[i]))
+        # r.append(list(data[i-1]) + list(data[i]))
 
     # for i in range(len(r)):
     #     for j in range(len(r[i])):
