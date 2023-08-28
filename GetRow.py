@@ -32,7 +32,7 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     frequencies = GetFrequencies(data, samplerate)
 
     #sorted_frequencies = sorted(frequencies.items(), key=lambda kv:(kv[1], kv[0]))
-    sorted_frequencies = sorted(frequencies.items(), key=lambda kv:(kv[1], kv[0]), reverse=True)
+    sorted_frequencies = sorted(frequencies.items(), key=lambda kv:(kv[1], kv[0]), reverse=False)
 
     # convert frequency and loudness to note objects
     for freq in sorted_frequencies[:channel_count]:
