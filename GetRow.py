@@ -15,11 +15,11 @@ def GetFrequencies(data: list, samplerate:int) -> dict:
     r = {}
 
     for current_frequency in islice(note_freqs(), 1, 83):
-    #     # if current_frequency%1000 <= 2:
-    #     #     print(current_frequency//1000, "khz")
-    #     filtered_frequency = butter_bandpass_filter(data, current_frequency-1, current_frequency+1, samplerate)
-        # decibels = get_average_decibels(filtered_frequency)
-        decibels = get_average_decibels(data)
+        # if current_frequency%1000 <= 2:
+        #     print(current_frequency//1000, "khz")
+        filtered_frequency = butter_bandpass_filter(data, current_frequency-1, current_frequency+1, samplerate)
+        decibels = get_average_decibels(filtered_frequency)
+        # decibels = get_average_decibels(data)
         r.update({current_frequency: decibels})
 
     return r
@@ -33,7 +33,7 @@ def Get_Row(data:list, samplerate:int, channel_count:int) -> list[Note]:
     frequencies = GetFrequencies(data, samplerate)
 
     #sorted_frequencies = sorted(frequencies.items(), key=lambda kv:(kv[1], kv[0]))
-    sorted_frequencies = sorted(frequencies.items(), key=lambda kv:(kv[1], kv[0]), reverse=False)
+    sorted_frequencies = sorted(frequencies.items(), key=lambda kv:(kv[1], kv[0]), reverse=True)
 
     # convert frequency and loudness to note objects
     for freq in sorted_frequencies[:channel_count]:

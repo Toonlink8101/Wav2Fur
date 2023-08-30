@@ -24,3 +24,6 @@ def freq2note(frequency, loudness) -> Note:
     volume_value = 0x7F - int(loudness / -6 * 8)
 
     return Note(note_value, volume_value, detune_value)
+
+# for loudness in range(0, -121, -1):
+    # print((.75*loudness), "db -> fur", 0x7F - int((loudness*.75) / -6 * 8))
